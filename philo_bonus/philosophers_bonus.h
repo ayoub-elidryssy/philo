@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 14:53:23 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/03/17 14:51:22 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:52:04 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ typedef struct s_philo
 	int				n;
 	int				y;
 	long			n_eating;
-	pthread_t		*th;
 	long			l_t_eat;
+	long			start_time;
+	pthread_t		*th;
 	struct timeval	last_t_eat;
 	struct s_var	*var1;
 }	t_philo;
@@ -48,6 +49,8 @@ typedef struct s_var
 	t_philo			*philo;
 	sem_t			*sem_fork;
 	sem_t			*sem_print;
+	sem_t			*sem_2;
+	sem_t			*sem_1;
 }	t_var;
 
 int		b_start_simulation(t_var *var, t_philo *philo, char **av, int ac);
